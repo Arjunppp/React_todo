@@ -1,0 +1,49 @@
+# Node.js dependencies
+to-do-app-client/node_modules/
+to-do-app-server/node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Env files
+to-do-app-client/.env
+to-do-app-server/.env
+
+# Build output
+to-do-app-client/build/
+to-do-app-client/dist/
+to-do-app-server/build/
+to-do-app-server/dist/
+
+# Coverage directory used by tools like istanbul
+to-do-app-client/coverage/
+to-do-app-server/coverage/
+
+# Cache files
+to-do-app-client/.cache/
+to-do-app-server/.cache/
+to-do-app-client/.next/
+to-do-app-server/.next/
+
+# Editor directories and files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Optional: Ignore lock files
+to-do-app-client/package-lock.json
+to-do-app-client/yarn.lock
+to-do-app-client/pnpm-lock.yaml
+to-do-app-server/package-lock.json
+to-do-app-server/yarn.lock
+to-do-app-server/pnpm-lock.yaml
