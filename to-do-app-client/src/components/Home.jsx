@@ -5,7 +5,10 @@ import {TodoForm} from './TodoForm'
 import { Sidebar } from "./Sidebar";
 import { displayContext } from "../context/context";
 
+
 export const Home = () => {
+ 
+  
   const [isCreate, setCreate] = useState(false);
   return (
    <displayContext.Provider value={setCreate} >
