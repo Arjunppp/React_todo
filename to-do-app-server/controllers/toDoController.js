@@ -25,7 +25,7 @@ export async function handleCreateTodo(req, res) {
     } catch (error) {
 
         console.error(error);
-        
+
 
     }
 
@@ -33,3 +33,18 @@ export async function handleCreateTodo(req, res) {
 
 
 };
+
+export async function handleDeleteTodo(req, res) {
+
+    try {
+        const taskId = req.params.id;
+        await toDoServices.deleteTodo(taskId);
+        res.send('OK')
+
+    } catch (error) {
+        console.error(error);
+
+    }
+
+
+}

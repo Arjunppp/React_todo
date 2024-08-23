@@ -22,4 +22,16 @@ export async function createTodo(title, content) {
         throw error;
     }
 
+};
+
+export async function deleteTodo(taskId) {
+
+    try {
+        await Todo.findByIdAndUpdate({ _id: taskId } ,{isDeleted:true});
+
+    } catch (error) {
+        throw error
+
+    }
+
 }

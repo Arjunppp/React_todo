@@ -4,7 +4,7 @@ import { useContext, useState, useEffect } from "react";
 import { displayContext } from "../context/context";
 
 const serverUrl = import.meta.env.VITE_SERVER_URL;
-export const TodoForm = () => {
+export const TodoForm = (props) => {
   const [task, setTask] = useState({ title: "", content: "" });
   const [isSubmit, setSubmit] = useState(false);
   const [isEmpty, setEmpty] = useState({
@@ -54,6 +54,7 @@ export const TodoForm = () => {
       <input
         type="text"
         name="title"
+        value={props.title}
         placeholder={isEmpty.state ? isEmpty.title : "Add title"}
         onChange={handleChange}
         className={`h-10 w-full  bg-slate-200 rounded-lg pl-4 ${(isEmpty.state && task.title ==="") ? "border border-red-500" : ""}`}
@@ -61,6 +62,7 @@ export const TodoForm = () => {
 
       <textarea
         name="content"
+        value={props.content}
         placeholder={isEmpty.state ? isEmpty.content : "Add content"}
         onChange={handleChange}
         className={`h-2/4 w-full  bg-slate-200 rounded-lg pl-4 pt-4  ${(isEmpty.state && task.content ==="") ? "border border-red-500" : ""}`}
@@ -68,7 +70,7 @@ export const TodoForm = () => {
 
       <div>
         <button type="submit" className="bg-slate-200 p-3 rounded-lg">
-          Create Task
+          {props.title ? "Edit Task" : "Create task"}
         </button>
       </div>
     </form>
