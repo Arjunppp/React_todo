@@ -53,7 +53,7 @@ export const DisplayTodo = () => {
   };
 
   return (
-    <div className={`${!chnageTask.isEdit ? `grid grid-cols-3 gap-3` : "w-full flex justify-center"} max-h-screen overflow-auto p-10`}>
+    <div className={`${!chnageTask.isEdit ? `grid grid-cols-3 gap-3 w-full` : "w-full flex justify-center"} max-h-screen overflow-auto p-10`}>
       {chnageTask.isEdit ? (
         <TodoForm
           id={chnageTask.id}

@@ -68,7 +68,7 @@ export const TodoForm = (props) => {
         placeholder={isEmpty.state ? isEmpty.title : "Add title"}
         onChange={handleChange}
         className={`h-10 w-full bg-slate-200 rounded-lg pl-4 ${
-          isEmpty.state && task.title === "" ? "border border-red-500" : ""
+          isEmpty.state && task.title === "" ? "border-2 border-red-500" : ""
         }`}
       />
 
@@ -78,7 +78,7 @@ export const TodoForm = (props) => {
         placeholder={isEmpty.state ? isEmpty.content : "Add content"}
         onChange={handleChange}
         className={`h-2/4 w-full bg-slate-200 rounded-lg pl-4 pt-4 ${
-          isEmpty.state && task.content === "" ? "border border-red-500" : ""
+          isEmpty.state && task.content === "" ? "border-2 border-red-500" : ""
         }`}
       ></textarea>
 
