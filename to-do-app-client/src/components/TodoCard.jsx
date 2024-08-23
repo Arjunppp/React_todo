@@ -18,9 +18,9 @@ export const TodoCard = (props) => {
       <h3 className="border w-full flex justify-center">{props.title}</h3>
       <h5 className="h-16">{props.content}</h5>
       <div className="flex gap-3">
-        <StarIcon onClick ={() => {setYellow(!isYellow)}} className={`h-4 w-4 cursor-pointer ${isYellow ? "text-yellow-400" : ""}`}/>
-        <PencilIcon onClick={handleEdit} className="h-4 w-4 cursor-pointer" />
-        <TrashIcon onClick={handleDelete} className="h-4 w-4 cursor-pointer" />
+        <StarIcon onClick ={() => {setYellow(!isYellow)}} className={`h-4 w-4 cursor-pointer ${isYellow ? "text-yellow-400" : ""} hover:text-yellow-400`}/>
+        <PencilIcon onClick={handleEdit} className="h-4 w-4 cursor-pointer hover:text-blue-700" />
+        <TrashIcon onClick={handleDelete} className="h-4 w-4 cursor-pointer hover:text-red-500" />
       </div>
     </div>
   );
