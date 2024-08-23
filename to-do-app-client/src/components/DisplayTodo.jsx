@@ -48,7 +48,7 @@ export const DisplayTodo = () => {
 
   return (
     <div className="grid grid-cols-3 gap-3 max-h-screen overflow-auto  p-10">
-     {chnageTask.isEdit ? (<TodoForm title={chnageTask.title} content={chnageTask.content} />) : (
+     {chnageTask.isEdit ? (<TodoForm id={chnageTask.id} title={chnageTask.title} content={chnageTask.content} />) : (
     allTodo.map((each) => {
       return (
         <TodoCard

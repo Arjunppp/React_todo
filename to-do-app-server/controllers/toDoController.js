@@ -1,3 +1,4 @@
+import { Todo } from '../models/toDoModel.js';
 import * as toDoServices from '../services/toDoServices.js'
 
 export async function handleGetAllTodo(req, res) {
@@ -47,4 +48,13 @@ export async function handleDeleteTodo(req, res) {
     }
 
 
+};
+
+export async function  handleUpdateTodo(req , res) {
+
+    const id = req.params.id;
+const todo = req.body;
+await toDoServices.updateTodo(todo ,id);
+
+    
 }

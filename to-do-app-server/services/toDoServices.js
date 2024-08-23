@@ -34,4 +34,12 @@ export async function deleteTodo(taskId) {
 
     }
 
+};
+
+
+export async function updateTodo(todo , id) {
+
+    const {title , content} = todo;
+    await Todo.findByIdAndUpdate({_id:id} ,{title:title , content:content})
+    
 }

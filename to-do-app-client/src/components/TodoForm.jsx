@@ -4,8 +4,15 @@ import { useContext, useState, useEffect } from "react";
 import { displayContext } from "../context/context";
 
 const serverUrl = import.meta.env.VITE_SERVER_URL;
+
 export const TodoForm = (props) => {
-  const [task, setTask] = useState({ title: "", content: "" });
+  console.log(props);
+  
+  const [task, setTask] = useState({
+    title: props.title || "",
+    content: props.content || "",
+  });
+  
   const [isSubmit, setSubmit] = useState(false);
   const [isEmpty, setEmpty] = useState({
     state: false,
@@ -13,6 +20,7 @@ export const TodoForm = (props) => {
     content: "",
   });
   const Create = useContext(displayContext);
+
   function handleChange(event) {
     const { name, value } = event.target;
     setTask((prevTask) => ({
@@ -28,49 +36,57 @@ export const TodoForm = (props) => {
 
   useEffect(() => {
     if (isSubmit) {
-      if (task.title == "" || task.content == "") {
+      if (task.title === "" || task.content === "") {
         setEmpty({
           state: true,
           title: task.title === "" ? "Title is required" : "",
           content: task.content === "" ? "Content is required" : "",
         });
       } else {
-        async function createTodo(task) {
-          await axios.post(serverUrl, task);
+        async function submitTodo() {
+          if (props.title) {
+            await axios.put(`${serverUrl}/${props.id}`, task);
+          } else {
+            await axios.post(serverUrl, task);
+          }
         }
 
-        createTodo(task);
+        submitTodo();
         Create.setCreate(false);
       }
-      setSubmit(false);
-    } 
+      setSubmit(!isSubmit);
+    }
   }, [isSubmit]);
 
   return (
     <form
       onSubmit={handleSubmit}
-      className="h-3/4 w-2/3 flex flex-col items-center justify-center  gap-3"
+      className="h-3/4 w-2/3 flex flex-col items-center justify-center gap-3"
     >
       <input
         type="text"
         name="title"
-        value={props.title}
+        value={task.title} 
         placeholder={isEmpty.state ? isEmpty.title : "Add title"}
         onChange={handleChange}
-        className={`h-10 w-full  bg-slate-200 rounded-lg pl-4 ${(isEmpty.state && task.title ==="") ? "border border-red-500" : ""}`}
+        className={`h-10 w-full bg-slate-200 rounded-lg pl-4 ${
+          isEmpty.state && task.title === "" ? "border border-red-500" : ""
+        }`}
       />
 
       <textarea
         name="content"
-        value={props.content}
+        value={task.content} 
         placeholder={isEmpty.state ? isEmpty.content : "Add content"}
         onChange={handleChange}
-        className={`h-2/4 w-full  bg-slate-200 rounded-lg pl-4 pt-4  ${(isEmpty.state && task.content ==="") ? "border border-red-500" : ""}`}
+        className={`h-2/4 w-full bg-slate-200 rounded-lg pl-4 pt-4 ${
+          isEmpty.state && task.content === "" ? "border border-red-500" : ""
+        }`}
       ></textarea>
 
       <div>
         <button type="submit" className="bg-slate-200 p-3 rounded-lg">
-          {props.title ? "Edit Task" : "Create task"}
+          {props.title ? "Edit Task" : "Create Task"}
         </button>
       </div>
     </form>
