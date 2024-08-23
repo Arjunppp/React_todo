@@ -55,6 +55,7 @@ export async function  handleUpdateTodo(req , res) {
     const id = req.params.id;
 const todo = req.body;
 await toDoServices.updateTodo(todo ,id);
+res.send('OK');
 
     
 }

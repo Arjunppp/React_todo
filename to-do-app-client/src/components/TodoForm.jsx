@@ -1,18 +1,15 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
-import { useContext, useState, useEffect } from "react";
 import { displayContext } from "../context/context";
 
 const serverUrl = import.meta.env.VITE_SERVER_URL;
 
 export const TodoForm = (props) => {
-  console.log(props);
-  
   const [task, setTask] = useState({
     title: props.title || "",
     content: props.content || "",
   });
-  
+
   const [isSubmit, setSubmit] = useState(false);
   const [isEmpty, setEmpty] = useState({
     state: false,
@@ -45,7 +42,8 @@ export const TodoForm = (props) => {
       } else {
         async function submitTodo() {
           if (props.title) {
-            await axios.put(`${serverUrl}/${props.id}`, task);
+            const resposne = await axios.put(`${serverUrl}/${props.id}`, task);
+            props.setEdit();
           } else {
             await axios.post(serverUrl, task);
           }
@@ -54,7 +52,7 @@ export const TodoForm = (props) => {
         submitTodo();
         Create.setCreate(false);
       }
-      setSubmit(!isSubmit);
+      setSubmit(false);
     }
   }, [isSubmit]);
 
@@ -66,7 +64,7 @@ export const TodoForm = (props) => {
       <input
         type="text"
         name="title"
-        value={task.title} 
+        value={task.title}
         placeholder={isEmpty.state ? isEmpty.title : "Add title"}
         onChange={handleChange}
         className={`h-10 w-full bg-slate-200 rounded-lg pl-4 ${
@@ -76,7 +74,7 @@ export const TodoForm = (props) => {
 
       <textarea
         name="content"
-        value={task.content} 
+        value={task.content}
         placeholder={isEmpty.state ? isEmpty.content : "Add content"}
         onChange={handleChange}
         className={`h-2/4 w-full bg-slate-200 rounded-lg pl-4 pt-4 ${
