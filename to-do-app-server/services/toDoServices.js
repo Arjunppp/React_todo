@@ -42,4 +42,10 @@ export async function updateTodo(todo , id) {
     const {title , content} = todo;
     await Todo.findByIdAndUpdate({_id:id} ,{title:title , content:content})
     
+};
+
+export async function getCompletedTasks() {
+
+    const completedTasks = await Todo.find({isDeleted:true})
+    return completedTasks;
 }

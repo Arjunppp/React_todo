@@ -62,7 +62,7 @@ export const DisplayTodo = () => {
           setEdit={handleChangeTask}  
         />
       ) : (
-        allTodo.map((each) => {
+        allTodo.length > 0 ? (allTodo.map((each) => {
           return (
             <TodoCard
               key={each._id}
@@ -73,7 +73,7 @@ export const DisplayTodo = () => {
               handleDelete={handleDelte}
             />
           );
-        })
+        })) : "No tasks Created"
       )}
     </div>
   );

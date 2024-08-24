@@ -58,4 +58,11 @@ await toDoServices.updateTodo(todo ,id);
 res.send('OK');
 
     
+};
+
+export async function handleGetCompletedTasks(req , res) {
+
+    const completedTasks = await toDoServices.getCompletedTasks();
+    res.send(completedTasks)
+    
 }
