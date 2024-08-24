@@ -22,11 +22,11 @@ export const Sidebar = () => {
         >
           {create.isCreate ? (
             <>
-              <EyeIcon className="h-6 w-6" /> View Tasks
+              <EyeIcon className="h-6 w-6" /> View Todos
             </>
           ) : (
             <>
-              <PlusIcon className="h-6 w-6" /> Create Task
+              <PlusIcon className="h-6 w-6" /> Create Todo
             </>
           )}
         </button>
@@ -35,7 +35,7 @@ export const Sidebar = () => {
           onClick={toggleCompleted}
           className="flex items-center gap-2 justify-center w-auto h-auto bg-white p-4 rounded-2xl"
         >
-          {create.isCompleted ? "All Tasks" : "Completed task"}
+          {create.isCompleted ? "All Todos" : "Completed Todos"}
         </button>
       </div>
     </div>

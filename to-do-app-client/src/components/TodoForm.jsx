@@ -84,7 +84,7 @@ export const TodoForm = (props) => {
 
       <div>
         <button type="submit" className="bg-slate-200 p-3 rounded-lg">
-          {props.title ? "Edit Task" : "Create Task"}
+          {props.title ? "Edit Todo" : "Create Todo"}
         </button>
       </div>
     </form>

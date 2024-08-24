@@ -73,7 +73,7 @@ export const DisplayTodo = () => {
               handleDelete={handleDelte}
             />
           );
-        })) : "No tasks Created"
+        })) : "No Todos Created"
       )}
     </div>
   );

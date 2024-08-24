@@ -31,7 +31,7 @@ export const Completed = () => {
             </h3>
           ))
         ) : (
-          <p>No completed tasks available.</p>
+          <p>No completed Todos available.</p>
         )}
       </div>
   );
