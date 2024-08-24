@@ -7,9 +7,11 @@ export const Sidebar = () => {
   const create = useContext(displayContext);
   const toggleState = () => {
     create.isCreate ? create.setCreate(false) : create.setCreate(true);
+    create.setCompleted(false)
   };
   const toggleCompleted = () => {
     create.isCompleted ? create.setCompleted(false) : create.setCompleted(true);
+    
   };
   return (
     <div className="h-full flex justify-center bg-slate-200 pl-4 pt-3">

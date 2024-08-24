@@ -19,16 +19,20 @@ export const Completed = () => {
   }, [serverUrl]);
 
   return (
-    <div className="flex flex-col gap-3">
-      {completedTask.length > 0 ? (
-        completedTask.map((each) => (
-          <h3 key={each._id} className="w-full p-3 rounded-lg border border-white line-through decoration-red-400 bg-slate-200">
-            {each.content}
-          </h3>
-        ))
-      ) : (
-        <p>No completed tasks available.</p>
-      )}
-    </div>
+    
+      <div className="grid grid-cols-3 gap-3">
+        {completedTask.length > 0 ? (
+          completedTask.map((each) => (
+            <h3
+              key={each._id}
+              className="w-full p-3  rounded-lg border border-white line-through decoration-red-400 bg-slate-200"
+            >
+              {each.content}
+            </h3>
+          ))
+        ) : (
+          <p>No completed tasks available.</p>
+        )}
+      </div>
   );
 };

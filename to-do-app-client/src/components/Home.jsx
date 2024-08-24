@@ -21,14 +21,21 @@ export const Home = () => {
           <div className="w-1/4 h-full">
             <Sidebar />
           </div>
-          <div className="w-3/4 h-full flex items-center justify-center">
-            <div className="w-3/4 h-full flex items-center justify-center">
+          <div className="w-3/4 h-full flex flex-col items-center justify-center">
+          <h1 className="p-5 flex items-center w-full border text-lg font-bold border-x-white justify-center bg-slate-200">{isCompleted ? "Completed Tasks" : (isCreate ? "Create Task" : "Created tasks")}</h1>
+            <div className="w-3/4 h-full flex flex-col gap-3 items-center justify-center">
               {isCompleted ? (
-                <Completed />
+                <>
+                  <Completed />
+                </>
               ) : isCreate ? (
-                <TodoForm />
+                <>
+                  <TodoForm />
+                </>
               ) : (
-                <DisplayTodo />
+                <>
+                  <DisplayTodo />
+                </>
               )}
             </div>
           </div>
